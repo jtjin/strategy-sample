@@ -21,6 +21,10 @@ class Product {
   getWeight() {
     return this.weight;
   }
+
+  getSize() {
+    return this.getLength() * this.getWidth() * this.getHeight();
+  }
 }
 
 module.exports = { Product };
