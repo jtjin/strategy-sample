@@ -2,22 +2,22 @@ class Cart {
   constructor() {
   }
 
-  shippingFee(shipper, length, width, height, weight) {
+  shippingFee(shipper, product) {
     switch (shipper) {
-      case "black cat":
-        if (weight > 20) {
+      case 'black cat':
+        if (product.getWeight() > 20) {
           return 500;
         }
-        return 100 + weight * 10;
-      case "hsinchu":
-        const size = length * width * height;
-        if (length > 100 || width > 100 || height > 100) {
+        return 100 + product.getWeight() * 10;
+      case 'hsinchu':
+        const size = product.getLength() * product.getWidth() * product.getHeight();
+        if (product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100) {
           return size * 0.00002 * 1100 + 500;
         }
         return size * 0.00002 * 1200;
-      case "post office":
-        const feeByWeight = 80 + weight * 10;
-        const _size = length * width * height;
+      case 'post office':
+        const feeByWeight = 80 + product.getWeight() * 10;
+        const _size = product.getLength() * product.getWidth() * product.getHeight();
         const feeBySize = _size * 0.00002 * 1100;
         return Math.min(feeByWeight, feeBySize);
       default:
