@@ -19,7 +19,7 @@ class Cart {
         const feeByWeight = 80 + weight * 10;
         const _size = length * width * height;
         const feeBySize = _size * 0.00002 * 1100;
-        return feeByWeight < feeBySize ? feeByWeight : feeBySize;
+        return Math.min(feeByWeight, feeBySize);
       default:
         throw new Error('shipper not exist');
     }
