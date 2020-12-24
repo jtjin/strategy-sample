@@ -2,7 +2,7 @@ class BlackCat {
   constructor() {
   }
 
-  calculateFeeByBlackCat(product) {
+  calculateFee(product) {
     if (product.getWeight() > 20) {
       return 500;
     }
