@@ -8,6 +8,11 @@ class Cart {
   }
 
   shippingFee(shipperName, product) {
+    const shipper = this.getShipper(shipperName);
+    return shipper.calculateFee(product);
+  }
+
+  getShipper(shipperName) {
     let shipper = new Shipper();
     switch (shipperName) {
       case 'black cat':
@@ -22,7 +27,7 @@ class Cart {
       default:
         throw new Error('shipper not exist');
     }
-    return shipper.calculateFee(product);
+    return shipper;
   }
 }
 
