@@ -8,8 +8,7 @@ class Cart {
   }
 
   shippingFee(shipperName, product) {
-    const shipper = this.getShipper(shipperName);
-    return shipper.calculateFee(product);
+    return this.getShipper(shipperName).calculateFee(product);
   }
 
   getShipper(shipperName) {
