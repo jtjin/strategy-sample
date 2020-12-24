@@ -5,10 +5,7 @@ class Cart {
   shippingFee(shipper, product) {
     switch (shipper) {
       case 'black cat':
-        if (product.getWeight() > 20) {
-          return 500;
-        }
-        return 100 + product.getWeight() * 10;
+        return this.calculateFeeByBlackCat(product);
       case 'hsinchu':
         if (product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100) {
           return product.getSize() * 0.00002 * 1100 + 500;
@@ -21,6 +18,13 @@ class Cart {
       default:
         throw new Error('shipper not exist');
     }
+  }
+
+  calculateFeeByBlackCat(product) {
+    if (product.getWeight() > 20) {
+      return 500;
+    }
+    return 100 + product.getWeight() * 10;
   }
 }
 
