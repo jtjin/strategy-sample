@@ -1,5 +1,8 @@
-class PostOffice {
+const { Shipper } = require('./Shipper');
+
+class PostOffice extends Shipper {
   constructor() {
+    super();
   }
 
   calculateFee(product) {

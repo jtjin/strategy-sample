@@ -1,5 +1,8 @@
-class Hsinchu {
+const { Shipper } = require('./Shipper');
+
+class Hsinchu extends Shipper {
   constructor() {
+    super();
   }
 
   calculateFee(product) {

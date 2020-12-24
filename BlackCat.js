@@ -1,5 +1,8 @@
-class BlackCat {
+const { Shipper } = require('./Shipper');
+
+class BlackCat extends Shipper {
   constructor() {
+    super();
   }
 
   calculateFee(product) {
